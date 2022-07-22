@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SendMessageService } from 'src/app/services/send-message.service';
+import { SaveService } from 'src/app/services/save.service';
 @Component({
   selector: 'app-mensajes',
   templateUrl: './mensajes.component.html',
@@ -9,7 +10,8 @@ import { SendMessageService } from 'src/app/services/send-message.service';
 export class MensajesComponent implements OnInit {
 
   constructor(
-    public service:SendMessageService
+    public service:SendMessageService,
+    public saveData: SaveService
   ) { }
 
   loading: any;
@@ -60,8 +62,8 @@ export class MensajesComponent implements OnInit {
 
       this.service.send(data).subscribe({
         next: (req:any) => {
+          this.saveDatabase(req);
           console.log(req)
-          this.loading = false;
           alert('Enviado Correctamente');
         },
         error: (err: string) => {
@@ -70,13 +72,42 @@ export class MensajesComponent implements OnInit {
           alert(err);
         },
         complete: () => {
-          this.loading = false;
-          this.form.reset();
-          this.form.enable();
         },
       });
 
     }
+  }
+
+  saveDatabase(req:any) {
+
+    let json = {
+      res :req,
+      variables: [
+        {var1 : this.form.value.var1},
+        {var2 : this.form.value.var2},
+      ]
+    }
+
+    let data  = {
+      to: this.form.value.phone,
+      message: this.form.value.plantilla,
+      json: JSON.stringify(json),
+    }
+    this.saveData.create(data).subscribe({
+      next: (req:any) => {
+        console.log(req)
+      },
+      error: (err: string) => {
+        console.log(err)
+        this.loading = false;
+        alert(err);
+      },
+      complete: () => {
+        this.form.enable();
+        this.loading = false;
+        this.form.reset();
+      },
+    });
   }
 
 }

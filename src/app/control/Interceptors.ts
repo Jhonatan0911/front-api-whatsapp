@@ -25,7 +25,7 @@ export class Interceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token: string = "EAAGG3jm0nTkBAJ4WgjdPpP6iGBMoMXNlrdzciYYE11JiCdv2vtTNzmFcWbmPgBYqI4mIjGd2l6uTjB0eFU0CMdm7K4CvpACDUyEGMqCifggqhZAiS9VKPTwUCB7t3QWuNjsQ0rXPswQT0iTpfFM6J7GUnktwlnpeZB2MPpf1U3q3FrgD5PNITtDFZCjrMOoroFDw4fm7wZDZD";
+    const token: string = "EAAGG3jm0nTkBACdbAlJCnJSc7aArUmJPfZBj6umBfvbZCexgOKktmmUXoZBsG4G0Ioj79awChruWZAP9Je42btfo29oTDaLl4zSjgbGpqwnJ2onIITUWmppipN44yjPpTQUQBxvaibmJZC9Bi0i9z9gh2BnWDX80SC229j6ie5ybkHbkZAnZCwGtHgzzjW8aXiPZCRs0Qf8tLAZDZD";
     let request = req;
     if (token) {
         request = req.clone({
