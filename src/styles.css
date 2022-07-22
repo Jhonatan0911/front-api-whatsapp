@@ -1,1 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100vh; background-color: #FBFBFB; }
+body, p { margin: 0; }
+
+.pointer{
+  cursor: pointer;
+}
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  color: inherit;
+  cursor: pointer
+}
+.center{
+  text-align: center !important;
+}
+
+.w-100{
+  width: 100%;
+}
+
+/* Fondos globales */
+.bg-primary{
+  background-color: #FBFBFB !important;
+}
+.bg-secondary{
+  background-color: #0A324B !important;
+}
+.bg-third{
+  background-color: #190101 !important;
+}
+
+/* Botones globales */
+.btn-primary{
+  background-color: #0A324B !important;
+  border-color: #0A324B !important;
+  color: #fff !important;
+}
+
+.btn-secondary{
+  background-color: #190101 !important;
+  color: #fff !important;
+
+}
+.btn-third{
+  background-color: #FBF7ED !important;
+}
+
+.btn-primary:hover{
+  background-color: #052235  !important;
+}
+.btn-secondary:hover{
+  background-color: #111111 !important;
+}
+.btn-third:hover{
+  background-color: #b3b3b3 !important;
+}
+
+.white{
+  color: #fff !important;
+}
+
+.dark{
+  color: #000 !important;
+}
+
+.w-100{
+  width: 100% !important;
+}
+
+.bold{
+  font-weight: bold !important;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+.sidenav-container {
+  height: 100vh !important;
+}
